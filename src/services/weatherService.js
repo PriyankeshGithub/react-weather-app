@@ -1,7 +1,7 @@
 import {DateTime} from "luxon";
 
 const API_KEY = "1f5a41db1fa672eb9c2ab30bb79c95eb";
-const BASE_URL = "https://api.openweathermap.org/data/2.5/";
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
@@ -12,7 +12,7 @@ const getWeatherData = (infoType, searchParams) => {
   
 };
 const formatCurrentWeather = (data) => {
-  //console.log(lat);
+  
   const {
     coord: { lat, lon },
     main: { temp, feels_like, temp_min, temp_max, humidity },
@@ -90,7 +90,7 @@ const formatToLocalTime = (
 ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
 const iconUrlFromCode = (code) => 
-'http://openweathermap.org/img/wn/${code}@2x.png';
+`http://openweathermap.org/img/wn/${code}@2x.png`;
 
 
 export default getFormattedWeatherData;
